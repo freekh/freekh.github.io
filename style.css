@@ -1,0 +1,196 @@
+html {
+  font-size: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Helvetica';
+  background-color: #f3f3f3;  
+}
+
+a, body {
+  color: #000000;
+}
+
+/* Nav */
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em; 
+}
+
+.nav__name {
+  font-weight: bold;
+}
+
+/* Header */
+
+header {
+  height: 3em;  
+}
+
+.header__detached {
+  min-width: 300px;
+  background-color: #fff;
+  position: fixed;
+  width: 100%;
+  height: 3em;
+  z-index: 1;
+  box-shadow: 0 2px 4px 0 rgba(44,43,40,0.35);
+}
+
+/* Main sections */
+
+main {
+  padding: 0 2em 0 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1em 0 1em 0;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px 0 rgba(44,43,40,0.35);
+}
+
+/* TLDR */
+
+#tldr {
+  max-width: 800px;
+}
+
+#tldr > div {
+  font-weight: bold;
+}
+
+/* Stats */
+
+#stats {
+  padding: 1em;
+  border-radius: 4px;
+  max-width: 600px;
+}
+
+.stats__value {
+  font-weight: bold;
+}
+
+.stats__value > div {
+  padding-top: 5px;
+}
+
+table {
+  border-spacing: 1em;
+}
+
+.headshot {
+  max-width: 200px;
+  border-radius: 50%;
+  padding: 0 1em 1em 1em;
+}
+
+/* Story */
+
+/* Could have used BEM here, but wanted to keep the structure lightweight */
+
+h1 {
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-width: 800px;
+}
+
+li {
+  margin: 1em 0 1em 0;
+  padding-top: 2em;
+}
+
+li > div {
+  padding: 0 1em 1em 1em;
+}
+
+.title {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  font-weight: bold;
+  text-align: center;  
+}
+
+.description {
+  padding-right: 1em;
+}
+
+.role::after {
+  content: ',';
+}
+
+.duration::before {
+  background: transparent url(assets/calendar.svg) no-repeat center;
+  content: ' ';
+  display: inline-block;
+  width: 1.3em;
+  height: 1em;
+}
+
+.duration {
+  display: flex;
+  padding-right: 1em;
+}
+
+.duration__start::after {
+  content: '- ';
+}
+
+.place {
+  padding-right: 1em;
+}
+
+.place::before {
+  background: transparent url(assets/place.svg) no-repeat center;
+  content: ' ';
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+}
+
+/* Disable/enable certain elements when printing */
+
+.print-only {
+  display: none;
+}
+
+@media print {
+  header {
+    display: none;
+  }
+  .print-only {
+    display: block;
+  }
+
+}
+
+/* Canvas (effect at bottom) */
+
+canvas {
+  width: 100vw;
+  height: 100px;
+  left: 0;
+}
