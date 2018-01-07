@@ -44,6 +44,7 @@ function initDetachedHeader() {
     } else {
       header.setAttribute('class', '');
     }
+
   }
 
   detachHeader();
@@ -79,7 +80,8 @@ function initBouncingSkyline() {
   const scene = initScene(gl);
   scene.draw(); // draw first time
 
-  let stopped = true
+  let stopped = true;
+  let waitUntil = 0;
   function iterate() {
     scene.iterateTime();
     scene.draw();
@@ -93,15 +95,18 @@ function initBouncingSkyline() {
     const scrolledToBottom = document.body.scrollHeight === window.scrollY + window.innerHeight;
     const scrolledAboveCanvas = document.body.scrollHeight - (window.scrollY + window.innerHeight) > canvas.scrollHeight;
     if (scrolledToBottom) { // bounce every time client scrolls to the bottom
-
-      // we just reset, though it would be cool to reset the ones that where touching the ground
-      // alas, I didn't feel like spending any more time on this
-      scene.reset();
-      if (stopped) {
-        stopped = false;
-        iterate();
+      if (waitUntil < new Date().getTime()) {
+        // we just reset, though it would be cool to reset the ones that where touching the ground
+        // alas, I didn't feel like spending any more time on this
+        scene.reset();
+        waitUntil = new Date().getTime() + 1000; // wait 1s before starting again because Safari makes it possible to scroll beyond.
+        if (stopped) {
+          stopped = false;
+          iterate();
+        }
       }
     } else if (scrolledAboveCanvas) { // stop drawing if we can't see it
+      waitUntil = 0;
       stopped = true;
       scene.reset();
       scene.draw();
