@@ -92,7 +92,7 @@ function initBouncingSkyline() {
 
   function bounceOnScroll() {
     // should be supported by most browsers
-    const scrolledToBottom = document.body.scrollHeight === window.scrollY + window.innerHeight;
+    const scrolledToBottom = document.body.scrollHeight <= window.scrollY + window.innerHeight;
     const scrolledAboveCanvas = document.body.scrollHeight - (window.scrollY + window.innerHeight) > canvas.scrollHeight;
     if (scrolledToBottom) { // bounce every time client scrolls to the bottom
       if (waitUntil < new Date().getTime()) {
