@@ -25,6 +25,12 @@ nav {
   font-weight: bold;
 }
 
+@media only screen and (max-width: 320px) {
+  .nav__name {
+    display: none;
+  }
+}
+
 /* Header */
 
 header {
