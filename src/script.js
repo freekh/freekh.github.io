@@ -99,8 +99,8 @@ function initBouncingSkyline() {
         // we just reset, though it would be cool to reset the ones that where touching the ground
         // alas, I didn't feel like spending any more time on this
         scene.reset();
-        waitUntil = new Date().getTime() + 1000; // wait 1s before starting again because Safari makes it possible to scroll beyond.
         if (stopped) {
+          waitUntil = new Date().getTime() + 1000; // wait 1s before starting again because Safari makes it possible to scroll beyond.
           stopped = false;
           iterate();
         }
