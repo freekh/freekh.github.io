@@ -134,13 +134,12 @@ li > div {
 
 .title {
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  width: 100%;
   font-weight: bold;
   text-align: center;
+  padding: 0 1em;
 }
 
 .description {
@@ -152,32 +151,38 @@ li > div {
 }
 
 .duration::before {
-  background: transparent url(assets/calendar.svg) no-repeat center;
+  background: url(assets/calendar.svg) no-repeat center;
+  background-size: contain;
   content: " ";
   display: inline-block;
-  width: 1.3em;
-  height: 1em;
+  width: 1.5em;
+  height: 1.5em;
+  margin-right: 0.25em;
 }
 
 .duration {
   display: flex;
-  padding-right: 1em;
+  align-items: center;
 }
 
 .duration__end::before {
-  content: " -";
+  content: "-";
 }
 
 .place {
   padding-right: 1em;
+  display: flex;
+  align-items: center;
 }
 
 .place::before {
-  background: transparent url(assets/place.svg) no-repeat center;
+  background: url(assets/place.svg) no-repeat center;
+  background-size: contain;
   content: " ";
   display: inline-block;
-  width: 1em;
-  height: 1em;
+  width: 1.5em;
+  height: 1.5em;
+  margin-right: 0.25em;
 }
 
 /* Disable/enable certain elements when printing */
@@ -219,5 +224,9 @@ canvas {
   .card {
     background-color: #25282f;
     box-shadow: 0 2px 4px 0 hsla(0, 0%, 0%, 0.35);
+  }
+  .duration::before,
+  .place::before {
+    filter: invert(1);
   }
 }
