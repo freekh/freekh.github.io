@@ -6,11 +6,12 @@ body {
   margin: 0;
   padding: 0;
   min-width: 300px;
-  font-family: 'Helvetica';
+  font-family: "Helvetica";
   background-color: #f3f3f3;
 }
 
-a, body {
+a,
+body {
   color: #000000;
 }
 
@@ -19,7 +20,7 @@ a, body {
 nav {
   display: flex;
   justify-content: space-between;
-  padding: 1em; 
+  padding: 1em;
 }
 
 .nav__name {
@@ -38,17 +39,15 @@ nav {
 /* Header */
 
 header {
-  height: 3em;  
+  height: 3em;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 
 .header__detached {
-  min-width: 300px;
   background-color: #fff;
-  position: fixed;
-  width: 100%;
-  height: 3em;
-  z-index: 1;
-  box-shadow: 0 2px 4px 0 rgba(44,43,40,0.35);
+  box-shadow: 0 2px 4px 0 rgba(44, 43, 40, 0.35);
 }
 
 /* Main sections */
@@ -70,7 +69,7 @@ section {
 .card {
   background-color: #fff;
   border-radius: 4px;
-  box-shadow: 0 2px 4px 0 rgba(44,43,40,0.35);
+  box-shadow: 0 2px 4px 0 rgba(44, 43, 40, 0.35);
 }
 
 /* TLDR */
@@ -141,7 +140,7 @@ li > div {
   align-items: center;
   width: 100%;
   font-weight: bold;
-  text-align: center;  
+  text-align: center;
 }
 
 .description {
@@ -149,12 +148,12 @@ li > div {
 }
 
 .role::after {
-  content: ',';
+  content: ",";
 }
 
 .duration::before {
   background: transparent url(assets/calendar.svg) no-repeat center;
-  content: ' ';
+  content: " ";
   display: inline-block;
   width: 1.3em;
   height: 1em;
@@ -165,8 +164,8 @@ li > div {
   padding-right: 1em;
 }
 
-.duration__start::after {
-  content: '- ';
+.duration__end::before {
+  content: " -";
 }
 
 .place {
@@ -175,7 +174,7 @@ li > div {
 
 .place::before {
   background: transparent url(assets/place.svg) no-repeat center;
-  content: ' ';
+  content: " ";
   display: inline-block;
   width: 1em;
   height: 1em;
@@ -194,7 +193,6 @@ li > div {
   .print-only {
     display: block;
   }
-
 }
 
 /* Canvas (effect at bottom) */
